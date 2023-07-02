@@ -113,9 +113,24 @@ El principal endpoint es:
     }
     ```
 
+## Préstamos y devoluciones
+- Préstamo
+    - GET /borrow/< bookId >/
+
+- Devolución
+    - GET /return/< bookId >/
+
+
+- Listar todos los préstamos
+    - GET /order/
+
+- Obtener un préstamo
+    - GET /order/< id >/
+
+
 ## Dataset
 
-Se inicia con un data set de más de 300k libros, 100k autores y 32 géneros. El conjunto de datos está disponible en la carpeta dataset. Para cargar el conjunto de datos en la base de datos, ejecute la siguiente función:
+Se inicia con un data set de más de 200k libros, 100k autores y 32 géneros. El conjunto de datos está disponible en la carpeta dataset. Para cargar el conjunto de datos en la base de datos, ejecute la siguiente función:
 
 ```
 fullDB();

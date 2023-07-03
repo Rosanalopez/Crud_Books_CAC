@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ImBooks } from "react-icons/im";
 import { HiOutlineUser, HiOutlineShoppingCart, HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";

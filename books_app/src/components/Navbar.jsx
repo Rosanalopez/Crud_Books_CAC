@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState } from "react"
 import { Link } from "react-router-dom";
 import { ImBooks } from "react-icons/im";
-import { HiOutlineUser, HiOutlineShoppingCart, HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
+import { HiOutlineUser, HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 
 
 export const Navbar = () => {
 
     let Links = [
        {name: 'Home', link:"/", key: 'home'},
-       {name: 'Libros', link:"/", key: 'libros'}, 
+       {name: 'Libros', link:"/books", key: 'libros'}, 
+       //{name: 'Login', link:"/", key: 'login'},
     ]
     let [open, setOpen] = useState (false);
     return (
@@ -27,8 +28,10 @@ export const Navbar = () => {
                         <Link to={link.link} className='text-black hover:underline hover:underline-offset-8 duration-500 no-underline'>{link.name}</Link>
                     </li>))
                     }
-                    <li className="md:ml-8 md:my-0 my-7"><HiOutlineShoppingCart className='h-6 w-6 text-black'/></li>
-                    <li className="md:ml-8 md:my-0 my-7"><HiOutlineUser className='h-6 w-6 text-black'/></li>
+                    {/* <li className="md:ml-8 md:my-0 my-7"><HiOutlineShoppingCart className='h-6 w-6 text-black'/></li> */}
+                    <li className="md:ml-8 md:my-0 my-7">
+                        <Link to="/admin"><HiOutlineUser className='h-6 w-6 text-black'/></Link>
+                    </li>
                 </ul>
                 <div onClick={() => setOpen(!open)} className='absolute right-8 top-6 cursor-pointer md:hidden w-7 h-7'>
                     {

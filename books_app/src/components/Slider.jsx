@@ -18,11 +18,14 @@ export const Slider = () => {
 
     const [books,setBooks] = useState([])
    
+    let nroPagina = 1
+
     useEffect(()=>{
-    get("/libraries/book").then((data)=>{
+      get("/libraries/book", `page=${nroPagina}`).then((data)=>{
     setBooks(data.data.books);
     })
-    },[])
+    },[nroPagina])
+
 
     console.log(books.data)
   return (

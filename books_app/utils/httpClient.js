@@ -1,7 +1,11 @@
 const API = "http://team5.com.ar/api/v1"
 
-export const get = async (url) => {
-  const response = await fetch(`${API}${url}`,{
+export const get = async (url, param = '') => {
+  let finalUrl = `${API}${url}`
+  if (param !== '') {
+    finalUrl = `${API}${url}/?${param}`
+  }
+  const response = await fetch(finalUrl,{
       headers: {
         'Content-Type': 'application/json',
         'Connection': 'keep-alive',

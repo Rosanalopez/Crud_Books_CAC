@@ -1,7 +1,7 @@
 //import { useState, useRef } from "react";
 // Import Swiper React components
 //import books from "../books.json"
-import {get} from "../../utils/httpClient.js"
+import { get } from "../../utils/httpClient.js"
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react"
@@ -18,17 +18,15 @@ import { EffectCoverflow, Pagination } from "swiper";
 
 export const Slider = () => {
 
-    const [books,setBooks] = useState([])
+    const [books, setBooks] = useState([])
    
     useEffect(()=>{
     get("/libraries/book").then((data)=>{
-    setBooks(data.data);
+    setBooks(data.data.books);
     })
     },[])
 
-  alert(books)
-
-  return (
+return (
     <>
       <Swiper
         effect={"coverflow"}
@@ -48,13 +46,13 @@ export const Slider = () => {
         className="mySwiper"
       >
         
-        {books.map((book) => (
-        <SwiperSlide key={book.id}>
-          <img src={book.image} alt={book.title}/>
-          <div className="text underline-offset-8" data-swiper-parallax="-100">
-            <Link to="/books/id"><p>View book</p></Link>
-          </div>
-        </SwiperSlide>
+        {books.map(book => (
+          <SwiperSlide key={book.id}>
+            <img src={book.image} alt={book.title}/>
+            <div className="text underline-offset-8" data-swiper-parallax="-100">
+              <Link to={`/book/${book.id}`}><p>View book</p></Link>
+            </div>
+          </SwiperSlide>
         ))}
       </Swiper>
     </>

@@ -75,3 +75,5 @@ router.route('/order/:id')
     .get(protect, libraryController.getOrder)
 
 // -----------------------------------------------------
+
+module.exports = router;

@@ -4,31 +4,39 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { HiArrowCircleLeft } from "react-icons/hi";
 
-export const BookDetail = () => {
+export const BookDetails = () => {
 
   const { bookId } = useParams();
   const [book, setBook] = useState(null);
+  const [genre, setGenre] = useState(null);
+  const [author, setAuthor] = useState(null);
 
   useEffect(() => {
     get(`/libraries/book/${bookId}`).then((data) => {
         setBook(data.data.book);
     });
+    get(`/libraries/genre/${bookId}`).then((data) => {
+      setGenre(data.data.genre);
+    });
+    get(`/libraries/author/${bookId}`).then((data) => {
+      setAuthor(data.data.author);
+    });
   }, [bookId]);
 
-  if (!book) {
+  if (!book || !genre || !author) {
     return null;
   }
 
   return (
   <>
     <section key={book.id}
-    className={`max_width px-4 grid md:grid-cols-2 lg:grid-cols-3 place-items-center pt-10 sm:pt-20 gap-4 
+    className={`max_width px-4 grid md:grid-cols-2 lg:grid-cols-3 place-items-center pt-10 sm:pt-20 gap-4 md:gap-0
     ${
       book? "overflow-hidden" : ""
     }`}
   >
     {/* seccion imagen  */}
-    <div className="h-[25rem] md:h-[35rem]">
+    <div className="h-[20rem] md:h-[28rem] md:mt-6 md:mx-3 md:w-[25rem]">
     <img
         src={
           book.image
@@ -36,7 +44,7 @@ export const BookDetail = () => {
             : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
         }
         alt={book.title}
-        className="rounded-xl object-cover w-full h-5/6"
+        className="rounded-xl object-conntain w-full h-full"
       />
     </div>
 
@@ -46,13 +54,18 @@ export const BookDetail = () => {
       <Link
         to="/books" className="no-underline text-para_text transition duration-200 ease-in hover:text-blue hover:tracking-wider">
       <HiArrowCircleLeft className="text-3xl"></HiArrowCircleLeft></Link>
-      <h1 className="text-6xl md:text-3xl font-bold text-center py-2">{book.title}</h1>
+      <h1 className="md:max-w-[700px] md:text-3xl sm:text-2xl font-bold text-center py-2">{book.title}</h1>
+      <div className="flex justify-between items-center gap-4">
+        <span className="border border-black rounded-lg px-3 py-1 mr-3">
+          {genre.name}
+        </span>
+      </div>
       <div className="px-2">
-        <h1 className="font-bold text-xl mb-1">RESUMEN:</h1>
+        <h1 className="font-bold md:text-2xl sm:text-sm mb-1">RESUMEN:</h1>
+        <p>{book.title}</p>
       </div>
       <div className="text-para_text px-2 pb-10">
-        <p><strong>Autor:</strong> {book.authorId || "Desconocido"}</p>
-        <p><strong>Genero:</strong> {book.genreId}</p>
+        <p><strong>Autor:</strong> {author.name || "Desconocido"}</p>
       </div>
     </div>
 

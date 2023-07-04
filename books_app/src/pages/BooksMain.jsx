@@ -1,10 +1,10 @@
 import { Slider } from "../components/Slider";
-import { BooksGrid } from "../components/BooksGrid";
+// import { BooksGrid } from "../components/BooksGrid";
 
 
 export const BooksMain =()=>{
     return <>
     <Slider/>
-    <BooksGrid/>
+    {/* <BooksGrid/> */}
     </>
 }

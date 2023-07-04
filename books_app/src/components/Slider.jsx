@@ -1,7 +1,5 @@
-//import { useState, useRef } from "react";
-// Import Swiper React components
-//import books from "../books.json"
-import {get} from "../../utils/httpClient.js"
+
+import { get } from "../../utils/httpClient";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react"
@@ -22,12 +20,11 @@ export const Slider = () => {
    
     useEffect(()=>{
     get("/libraries/book").then((data)=>{
-    setBooks(data.data);
+    setBooks(data.data.books);
     })
     },[])
 
-  alert(books)
-
+    console.log(books.data)
   return (
     <>
       <Swiper
@@ -47,7 +44,6 @@ export const Slider = () => {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
-        
         {books.map((book) => (
         <SwiperSlide key={book.id}>
           <img src={book.image} alt={book.title}/>

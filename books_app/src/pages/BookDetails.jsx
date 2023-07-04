@@ -54,7 +54,7 @@ export const BookDetails = () => {
       <Link
         to="/books" className="no-underline text-para_text transition duration-200 ease-in hover:text-blue hover:tracking-wider">
       <HiArrowCircleLeft className="text-3xl"></HiArrowCircleLeft></Link>
-      <h1 className="md:max-w-[700px] md:text-3xl sm:text-2xl font-bold text-center py-2">{book.title}</h1>
+      <h1 className="md:max-w-[700px] md:text-3xl sm:text-2xl md:mt-2.5 font-bold text-center px-3 py-2">{book.title}</h1>
       <div className="flex justify-between items-center gap-4">
         <span className="border border-black rounded-lg px-3 py-1 mr-3">
           {genre.name}

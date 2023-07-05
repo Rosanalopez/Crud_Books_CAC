@@ -13,14 +13,14 @@ export const BookDetails = () => {
 
   useEffect(() => {
     get(`/libraries/book/${bookId}`).then((data) => {
-        setBook(data.data.book);
-    });
-    get(`/libraries/genre/${bookId}`).then((data) => {
-      setGenre(data.data.genre);
-    });
-    get(`/libraries/author/${bookId}`).then((data) => {
-      setAuthor(data.data.author);
-    });
+        setBook(data.data.book)
+        get(`/libraries/genre/${data.data.book.genreId}`).then((data) => {
+          setGenre(data.data.genre);
+        });
+        get(`/libraries/author/${data.data.book.authorId}`).then((data) => {
+          setAuthor(data.data.author);
+        });
+      });
   }, [bookId]);
 
   if (!book || !genre || !author) {

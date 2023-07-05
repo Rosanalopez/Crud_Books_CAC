@@ -6,6 +6,7 @@ const userModel = db.define("user",{
     "password": {"type": DataTypes.STRING},
     "fullName": {"type": DataTypes.STRING},
     "address": {"type": DataTypes.STRING},
+    "role": {"type": DataTypes.STRING},
     "createdAt": {"type": DataTypes.DATE},
     "updatedAt": {"type": DataTypes.DATE}
 })

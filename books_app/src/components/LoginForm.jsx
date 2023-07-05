@@ -1,8 +1,9 @@
-import react from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './LoginForm.css'
+//import {login} from '../../tools/httpClient'
 
-function LoginForm(){
+export function LoginForm(){
     return (
      <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>   
       <div className='login'>

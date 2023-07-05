@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { get } from "../../utils/httpClient.js"
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { HiArrowCircleLeft } from "react-icons/hi";
+import { HiArrowCircleLeft, HiPencilAlt, HiTrash } from "react-icons/hi";
 
 export const BookDetails = () => {
 
@@ -13,14 +13,14 @@ export const BookDetails = () => {
 
   useEffect(() => {
     get(`/libraries/book/${bookId}`).then((data) => {
-        setBook(data.data.book);
-    });
-    get(`/libraries/genre/${bookId}`).then((data) => {
-      setGenre(data.data.genre);
-    });
-    get(`/libraries/author/${bookId}`).then((data) => {
-      setAuthor(data.data.author);
-    });
+        setBook(data.data.book)
+        get(`/libraries/genre/${data.data.book.genreId}`).then((data) => {
+          setGenre(data.data.genre);
+        });
+        get(`/libraries/author/${data.data.book.authorId}`).then((data) => {
+          setAuthor(data.data.author);
+        });
+      });
   }, [bookId]);
 
   if (!book || !genre || !author) {
@@ -66,6 +66,17 @@ export const BookDetails = () => {
       </div>
       <div className="text-para_text px-2 pb-10">
         <p><strong>Autor:</strong> {author.name || "Desconocido"}</p>
+      </div>
+      <div className="px-5 ">
+        <button class="h-10 px-5 m-2 font-bold text-white transition-colors duration-150 bg-turquesa rounded-full focus:shadow-outline hover:bg-black">
+          Pedir Libro
+        </button>
+        <button class="h-10 px-5 m-2 text-white transition-colors duration-150 bg-blue rounded-lg focus:shadow-outline hover:bg-blue_black">
+          <HiPencilAlt className="text-md"></HiPencilAlt>
+        </button>
+        <button class="h-10 px-5 m-2 text-white transition-colors duration-150 bg-red rounded-lg focus:shadow-outline hover:bg-red_black">
+          <HiTrash className="text-md"></HiTrash>
+        </button>
       </div>
     </div>
 

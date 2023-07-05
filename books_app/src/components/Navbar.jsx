@@ -29,6 +29,7 @@ export const Navbar = () => {
                     </li>))
                     }
                     {/* <li className="md:ml-8 md:my-0 my-7"><HiOutlineShoppingCart className='h-6 w-6 text-black'/></li> */}
+                    
                     <li className="md:ml-8 md:my-0 my-7">
                         <Link to="/admin"><HiOutlineUser className='h-6 w-6 text-black'/></Link>
                     </li>

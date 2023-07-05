@@ -1,24 +1,23 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-//import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-const url = "http://localhost:3000/api/v1/libraries/book";
-
+const url = "http://localhost:3000/book/";
  
-const ShowBooks = () => {
-
-        const [books, setBooks] = useState([]);
-      
-        useEffect(()=>{
-          getBooks()
-        },[])
-      
-        // procedimiento para mostrar los posts
-        const getBooks = async () => {
-          const res = await axios.get(url);
-          setBooks(res.data);
-       
-        };
+export const ShowBooks = () => {
+  
+    const [books, setBooks] = useState([]);
+  
+    useEffect(()=>{
+      getBooks()
+    },[])
+  
+    // procedimiento para mostrar los posts
+    const getBooks = async () => {
+      const res = await axios.get(url);
+      setBooks(res.data);
+   
+    };
 
   return (
     <div className="h-full w-full">
@@ -77,7 +76,7 @@ const ShowBooks = () => {
                   {/* <Typography variant="small" color="blue-gray" className="font-normal">
                    
                   </Typography> */}
-                  {book.description}
+                  {book.title}
                 </td>
               </tr>
             ))}
@@ -85,6 +84,5 @@ const ShowBooks = () => {
       </table>
     </div>
   );
-}
+};
 
-export default ShowBooks;

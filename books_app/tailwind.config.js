@@ -9,7 +9,14 @@ export default {
       "white": "#f3f3f3",
       "black": "#19191b",
       "blue": "#5179ff",
-      "para_text": "#565657"
+      "blue_black": "#1e40af",
+      "turquesa":"#0d9488",
+      "para_text": "#565657",
+      "red": "#ef4444",
+      "red_black": "#b91c1c",
+      "grey":"#a3a3a3",
+      "grey_black":"#94a3b8",
+
     },
     fontFamily: {
       sans: ['Work Sans', 'sans-serif'],

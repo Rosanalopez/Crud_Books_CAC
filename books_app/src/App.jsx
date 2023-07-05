@@ -4,6 +4,7 @@ import {BooksMain} from "./pages/BooksMain";
 import {SidebarAdmin} from "./pages/SidebarAdmin";
 import {BookDetails} from "./pages/BookDetails";
 import {BrowserRouter,Routes,Route} from "react-router-dom"
+import {LoginForm} from "./components/LoginForm"
 
 import './App.css'
 
@@ -12,7 +13,9 @@ function App() {
       <BrowserRouter>
         <Navbar/>
         <Routes>
+          
           <Route path="/" element={<LandingPage/>}/>
+          <Route path="/Login" element={<LoginForm/>}/>
           {/* <Route path="/" element={<ShowBooks/>}/> */}
           {/* <Route path="/create" element={<CreateBook/>}/>
           <Route path="/edit/:id" element={<EditBook/>}/> */}

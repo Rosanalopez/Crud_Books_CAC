@@ -4,7 +4,6 @@ Backend -> Express
 Frontend -> React
 
 ## Integrantes Grupo 7
-- Ignacio Brasesco
 - Marianela Gaia
 - Rosana López
 - Julieta Piclu

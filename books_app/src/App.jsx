@@ -1,3 +1,4 @@
+
 import { LandingPage } from "./pages/LandingPage";
 import { Navbar } from "./components/Navbar"
 import { BooksMain } from "./pages/BooksMain";
@@ -7,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import  LoginForm from "./components/LoginForm";
 import EditBook from "./components/EditBook";
 import CreateBook from "./components/CreateBook";
+
 
 import './App.css'
 
@@ -19,8 +21,12 @@ function App() {
           <Route path="/" element={<LandingPage/>}/>
           <Route path="/Login" element={<LoginForm/>}/>
           {/* <Route path="/" element={<ShowBooks/>}/> */}
-          {/* <Route path="/create" element={<CreateBook/>}/>*/}
+
+         
+}
+        
           <Route path="/admin" element={<SidebarAdmin/>}/>
+
           <Route path="/books" element={<BooksMain/>}/>
           <Route path="/book/:bookId" element={<BookDetails/>}/>
           <Route path="/book/edit/:bookId" element={<EditBook/>}/> 

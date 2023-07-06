@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './LoginForm.css'
 //import {login} from '../../tools/httpClient'
 
-export function LoginForm(){
+const LoginForm = () => {
     return (
      <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>   
       <div className='login'>
@@ -34,3 +34,5 @@ export function LoginForm(){
      </div> 
     )
 }
+
+export default LoginForm;

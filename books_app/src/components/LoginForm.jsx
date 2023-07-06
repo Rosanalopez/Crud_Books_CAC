@@ -2,7 +2,7 @@ import react from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './LoginForm.css'
 
-function LoginForm(){
+const LoginForm = () => {
     return (
      <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>   
       <div className='login'>
@@ -33,3 +33,5 @@ function LoginForm(){
      </div> 
     )
 }
+
+export default LoginForm;

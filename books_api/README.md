@@ -94,7 +94,9 @@ Main endpoint of the api is
     ```
     {
         "username": "username",
-        "password": "password"
+        "password": "password",
+        "fullName": "full name",
+        "address": "address"
     }
     ```
 - Login
@@ -105,6 +107,16 @@ Main endpoint of the api is
         "password": "password"
     }
     ```
+
+- Update User
+    - PATCH /users/< id >/
+    ```
+    {
+        "fullName": "Full name",
+        "address": "Address",
+    }
+    ```
+
 
 ## Dataset
 It starts with a dataset of over 300k books, 100k authors and 32 genres. The dataset is available in the dataset folder. To load the dataset into the database, run the following function:

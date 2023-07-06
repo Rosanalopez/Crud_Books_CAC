@@ -1,6 +1,9 @@
 import backgroundImage from '../assets/books.jpeg';
 
+import backgroundImage from '../assets/books.jpeg'; // Importa la imagen como un módulo
+
 export const LandingPage = () => {
+
   const isSmallScreen = window.innerWidth < 640;
 
   return (
@@ -19,6 +22,8 @@ export const LandingPage = () => {
     </div>
   );
 };
+
+
 
 
 

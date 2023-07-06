@@ -1,6 +1,4 @@
-import backgroundImage from '../assets/books.jpeg';
-
-import backgroundImage from '../assets/books.jpeg'; // Importa la imagen como un módulo
+import backgroundImage from "../assets/books.jpeg";
 
 export const LandingPage = () => {
 

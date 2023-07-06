@@ -18,7 +18,7 @@ export const Navbar = () => {
                 <Link to="/" className='no-underline'>
                     <div className='flex md:text-2xl sm:text-small cursor-pointer items-center gap-2'>
                         <ImBooks className='h-7 w-7 text-black'/>
-                        <span className='font-bold text-black'>LOS NEUTRONES | Libreria</span>
+                        <span className='font-bold text-black'>LOS NEUTRONES | Libros Online</span>
                     </div>
                 </Link>
                 <ul className={`md:flex md:items-center md:pb-0 mb-0 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>

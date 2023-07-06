@@ -20,12 +20,7 @@ function App() {
           
           <Route path="/" element={<LandingPage/>}/>
           <Route path="/Login" element={<LoginForm/>}/>
-          {/* <Route path="/" element={<ShowBooks/>}/> */}
-
-         
-}
-        
-          <Route path="/admin" element={<SidebarAdmin/>}/>
+          <Route path="/admin" element={<SidebarAdmin/>}/> */
 
           <Route path="/books" element={<BooksMain/>}/>
           <Route path="/book/:bookId" element={<BookDetails/>}/>

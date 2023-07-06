@@ -1,6 +1,7 @@
-import react from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './LoginForm.css'
+//import {login} from '../../tools/httpClient'
 
 const LoginForm = () => {
     return (

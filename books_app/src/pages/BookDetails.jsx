@@ -30,10 +30,10 @@ export const BookDetails = () => {
   return (
   <>
     <section key={book.id}
-    className={`max_width px-4 grid md:grid-cols-2 lg:grid-cols-3 place-items-center pt-10 sm:pt-20 gap-4 md:gap-0
+    className={`max_width px-4 grid md:grid-cols-2 lg:grid-cols-3 place-items-center pt-10 sm:pt-20 sm:mt-5 sm:z-50 gap-4 md:gap-0
     ${
       book? "overflow-hidden" : ""
-    }`}
+    } mt-[4rem] sm:mt-0`}
   >
     {/* seccion imagen  */}
     <div className="h-[20rem] md:h-[28rem] md:mt-6 md:mx-3 md:w-[25rem]">
@@ -56,7 +56,7 @@ export const BookDetails = () => {
       <HiArrowCircleLeft className="text-3xl"></HiArrowCircleLeft></Link>
       <h1 className="md:max-w-[700px] md:text-3xl sm:text-2xl md:mt-2.5 font-bold text-center px-3 py-2">{book.title}</h1>
       <div className="flex justify-between items-center gap-4">
-        <span className="border border-black rounded-lg px-3 py-1 mr-3">
+        <span className="border border-black rounded-lg px-3 py-1 mr-3 sm:text-sm">
           {genre.name}
         </span>
       </div>
@@ -67,15 +67,15 @@ export const BookDetails = () => {
       <div className="text-para_text px-2 pb-10">
         <p><strong>Autor:</strong> {author.name || "Desconocido"}</p>
       </div>
-      <div className="px-5 ">
-        <button class="h-10 px-5 m-2 font-bold text-white transition-colors duration-150 bg-turquesa rounded-full focus:shadow-outline hover:bg-black">
+      <div className="px-5 flex flex-col sm:flex-row md:justify-start sm:justify-center sm:items-center">
+        <button className="h-10 px-5 m-2 font-bold text-white sm:text-sm transition-colors duration-150 bg-turquesa rounded-full focus:shadow-outline hover:bg-black flex items-center justify-center">
           Pedir Libro
         </button>
-        <button class="h-10 px-5 m-2 text-white transition-colors duration-150 bg-blue rounded-lg focus:shadow-outline hover:bg-blue_black">
-          <HiPencilAlt className="text-md"></HiPencilAlt>
+        <button className="h-10 md:px-5 sm:w-auto m-2 text-white sm:text-sm transition-colors duration-150 bg-blue rounded-lg focus:shadow-outline hover:bg-blue_black flex items-center justify-center">
+          <HiPencilAlt className="text-md" />
         </button>
-        <button class="h-10 px-5 m-2 text-white transition-colors duration-150 bg-red rounded-lg focus:shadow-outline hover:bg-red_black">
-          <HiTrash className="text-md"></HiTrash>
+        <button className="h-10 md:px-5 sm:w-auto m-2 text-white sm:text-sm transition-colors duration-150 bg-red rounded-lg focus:shadow-outline hover:bg-red_black flex items-center justify-center">
+          <HiTrash className="text-md" />
         </button>
       </div>
     </div>

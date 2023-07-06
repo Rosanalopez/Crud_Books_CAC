@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-import { login } from '../tools/httpClient.js'
+// import { login } from '../tools/httpClient.js'
 
-login('grupo7', 'grupo7_comision23307')
+// login('grupo7', 'grupo7_comision23307')
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

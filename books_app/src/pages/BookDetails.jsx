@@ -26,6 +26,7 @@ export const BookDetails = () => {
   if (!book || !genre || !author) {
     return null;
   }
+  const description = !book.description ? book.title : book.description;
 
   return (
   <>
@@ -62,7 +63,7 @@ export const BookDetails = () => {
       </div>
       <div className="px-2">
         <h1 className="font-bold md:text-2xl sm:text-sm mb-1">RESUMEN:</h1>
-        <p>{book.title}</p>
+        <p>{ description }</p>
       </div>
       <div className="text-para_text px-2 pb-10">
         <p><strong>Autor:</strong> {author.name || "Desconocido"}</p>

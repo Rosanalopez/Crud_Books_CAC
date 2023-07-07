@@ -51,9 +51,10 @@ const EditBook = () =>{
             const thisImage = !image ? "" : image
 
             return(
-                <div>
-                <h1>Editar Libro</h1>
-                <form onSubmit={editar}>
+              <section className="flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
+              <div className="w-full pt-12 shadow-xl p-10 bg-white max-w-xl rounded">
+                <form onSubmit={editar} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <h1 className="flex block justify-center text-4xl font-black mb-4"><strong>Crear Libro</strong></h1>
                   <div className="mb-3">
                     <label className="form-label">Titulo</label>
                     <input
@@ -106,11 +107,12 @@ const EditBook = () =>{
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className=" btn bg-turquesa hover:bg-blue-black text-white transition-colors duration-150 bg-turquesa hover:bg-black">
                   EDITAR
                   </button>
                 </form>
               </div>
+              </section>
             )
         }
     

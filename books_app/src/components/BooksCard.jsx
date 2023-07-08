@@ -6,12 +6,12 @@ const imgURL= `${book.image}`
 
   return (
        
-    <li className="moviesCard">
+    <li className="booksCard">
           <Link to={`${book.id}`}>
                       <div className="card">
                                     <div className="card-body">
                                         <div className="card-img-actions">
-                                        <img className="movieImage card-img img-fluid" height="50%" width="100%" src={imgURL} alt={book.title} />                                              
+                                        <img className="bookImage card-img img-fluid" height="50%" width="100%" src={imgURL} alt={book.title} />                                              
                                         </div>
                                     </div>
 

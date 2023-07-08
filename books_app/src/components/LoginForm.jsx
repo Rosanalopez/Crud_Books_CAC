@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './LoginForm.css'
 import { login } from '../../utils/httpClient'
+import { Link } from 'react-router-dom'
 
 
 // Inicio Sesión
@@ -51,7 +52,11 @@ const LoginForm = () => {
         <button type='submit' className='btn btn-succes w-100 mt-2'>
           Iniciar Sesión
         </button>
-        <p className='titulo' >No estás registrado? <a className="referencia" href="UserCreate.js">Registrarme</a></p>
+        <p className='titulo' >No estás registrado? - 
+          <Link to="/signup">
+              Registrarme
+          </Link>
+        </p>
        </form>       
       </div>  
      </div> 

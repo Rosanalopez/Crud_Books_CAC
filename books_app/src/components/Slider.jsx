@@ -13,14 +13,13 @@ import "./Slider.css";
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper";
 
+let nroPagina = 1
+
 export const Slider = () => {
 
     const [books,setBooks] = useState([])
-
-    let nroPagina = 1
-   
     useEffect(()=>{
-    get("/libraries/book").then((data)=>{
+    get(`/libraries/book/?page=${nroPagina}`).then((data)=>{
     setBooks(data.data.books);
     })
     },[nroPagina])
@@ -54,6 +53,31 @@ export const Slider = () => {
         </SwiperSlide>
         ))}
       </Swiper>
+      {/* Botones "Anterior" y "Siguiente" */}
+      <div className="flex justify-center items-center gap-4 mt-5">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-blue font-bold py-2 px-4 rounded"
+          onClick={() => {
+            nroPagina = Math.max(1, nroPagina - 1);
+            get(`/libraries/book/?page=${nroPagina}`).then((data) => {
+              setBooks(data.data.books);
+            });
+          }}
+        >
+          Anterior
+        </button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-blue font-bold py-2 px-4 rounded"
+          onClick={() => {
+            nroPagina = nroPagina + 1;
+            get(`/libraries/book/?page=${nroPagina}`).then((data) => {
+              setBooks(data.data.books);
+            });
+          }}
+        >
+          Siguiente
+        </button>
+      </div>
     </>
   );
 }

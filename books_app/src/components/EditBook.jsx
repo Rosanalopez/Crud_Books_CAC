@@ -17,7 +17,7 @@ const EditBook = () =>{
 
     const {bookId} = useParams()
 
-    // procedimiento para editar un post
+    // procedimiento para editar un libro
     const editar = async (e) => {
         e.preventDefault();
         await axios.patch(url+bookId, {
@@ -31,7 +31,7 @@ const EditBook = () =>{
       };
 
       useEffect(()=>{
-        //metodo para traer un post por su id
+        //metodo para traer un libro por su id
         getBookById()
               },[])
 

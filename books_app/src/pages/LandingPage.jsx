@@ -1,4 +1,5 @@
 import backgroundImage from "../assets/books.jpeg";
+import { Link } from "react-router-dom";
 
 export const LandingPage = () => {
 
@@ -13,7 +14,9 @@ export const LandingPage = () => {
         </div>
         <div className="flex justify-center">
           <button className={`bg-turquesa hover:bg-blue-black text-white ${isSmallScreen ? 'px-2 py-1' : 'px-4 py-2'} font-bold rounded`}>
-            <p className='sm:text-sm'>¡Quiero registrarme!</p>
+            <Link to="/signup">
+              <p className='sm:text-sm'>¡Quiero registrarme!</p>
+            </Link>
           </button>
         </div>
       </div>

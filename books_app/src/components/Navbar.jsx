@@ -1,16 +1,23 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import { ImBooks } from "react-icons/im";
-import { HiOutlineUser, HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
+import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 
+const username = localStorage.getItem('username')
 
 export const Navbar = () => {
 
     let Links = [
        {name: 'Home', link:"/", key: 'home'},
-       {name: 'Libros', link:"/books", key: 'libros'}, 
-       //{name: 'Login', link:"/", key: 'login'},
+       {name: 'Libros', link:"/book", key: 'libros'}
     ]
+
+    if (username) {
+        Links.push({name: 'Cerrar sesión', link:"/logout", key: 'logout'})
+    } else {
+        Links.push({name: 'Iniciar sesión', link:"/login", key: 'login'})
+    }
+
     let [open, setOpen] = useState (false);
     return (
         <div className='shadow-md w-full top-0 left-0 fixed z-[100]'>
@@ -27,14 +34,9 @@ export const Navbar = () => {
                     <li className='md:ml-8 md:my-0 my-7 font-semibold' key={link.key}>
                         <Link to={link.link} className='text-black hover:underline hover:underline-offset-8 duration-500 no-underline'>{link.name}</Link>
                     </li>))
-                    }                    
-                    <li className="md:ml-8 md:my-0 my-7">
-                        <Link to="/">
-                        <button className="flex items-center text-black hover:underline hover:underline-offset-8 duration-500 focus:outline-none">
-                            <HiOutlineUser className="h-6 w-6 mr-1" />
-                            <strong>Inicio sesión</strong> 
-                        </button>
-                        </Link>
+                    }
+                    <li className='md:ml-8 md:my-0 my-7 font-semibold'>
+                        <p className='text-black hover:underline hover:underline-offset-8 duration-500 no-underline'>Bienvenido {username}</p>
                     </li>
                 </ul>
                 <div onClick={() => setOpen(!open)} className='absolute right-8 top-4 px-5 cursor-pointer md:hidden w-7 h-7'>

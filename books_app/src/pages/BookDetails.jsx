@@ -53,7 +53,7 @@ export const BookDetails = () => {
     
     <div className="lg:col-span-2 space-y-5 max-w-[50rem]">
       <Link
-        to="/books" className="no-underline text-para_text transition duration-200 ease-in hover:text-blue hover:tracking-wider">
+        to="/book" className="no-underline text-para_text transition duration-200 ease-in hover:text-blue hover:tracking-wider">
       <HiArrowCircleLeft className="text-3xl"></HiArrowCircleLeft></Link>
       <h1 className="md:max-w-[700px] md:text-3xl sm:text-2xl md:mt-2.5 font-bold text-center px-3 py-2">{book.title}</h1>
       <div className="flex justify-between items-center gap-4">

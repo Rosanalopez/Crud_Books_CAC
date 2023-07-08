@@ -3,15 +3,14 @@ import axios from "axios"
 const API = "http://team5.com.ar/api/v1"
 // const API = "http://localhost:3000/api/v1"
 
-const localCookie = (username, role) => {
+const localCookie = (userId, username, role) => {
+  localStorage.setItem('userId', userId)
   localStorage.setItem('username', username)
   localStorage.setItem('role', role)
-  console.log('Cookies seteadas')
-  console.log(localStorage.getItem('username'))
-  console.log(localStorage.getItem('role'))
 }
 
 const deleteCookies = () => {
+  localStorage.removeItem('userId')
   localStorage.removeItem('username')
   localStorage.removeItem('role')
 }
@@ -48,11 +47,9 @@ export const login = async (username, password, successUrl=null) => {
     if (response.data.status === "success") {
       // Grabo los cookies información del usuario
       const role = response.data.data.user.role
+      const userId = response.data.data.user.id
 
-      localCookie(username, role)
-      console.log('Cookies seteadas')
-      console.log(localStorage.getItem('username'))
-      console.log(localStorage.getItem('role'))
+      localCookie(userId, username, role)
 
       if (successUrl) {
         window.location.href = successUrl
@@ -80,6 +77,40 @@ export const logout = async () => {
       console.log(response.data)
     }
 
+    return response.data
+  } catch (error) {
+    console.log(error)
+    return error
+  }
+};
+
+export const signup = async (username, password, fullName=null, address=null, successUrl=null) => {
+  try {
+    const axiosInstance = axios.create({
+      withCredentials: true
+    })
+    const response = await axiosInstance.post(`${API}/users/signup`, {
+      username,
+      password,
+      fullName,
+      address
+    }, { headers: {
+        'Content-Type': 'application/json'
+      }}
+    )
+    if (response.data.status === "success") {
+      // Grabo los cookies información del usuario
+      const role = response.data.data.user.role || "user"
+      const userId = response.data.data.user.id
+
+      localCookie(userId, username, role)
+
+      if (successUrl) {
+        window.location.href = successUrl
+      }
+    } else {
+      console.log(response.data)
+    }
     return response.data
   } catch (error) {
     console.log(error)

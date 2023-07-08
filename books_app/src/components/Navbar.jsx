@@ -14,6 +14,7 @@ export const Navbar = () => {
 
     if (username) {
         Links.push({name: 'Cerrar sesión', link:"/logout", key: 'logout'})
+        Links.push({name: 'Libros prestados', link:"/book/orders", key: 'pedidos'})
     } else {
         Links.push({name: 'Iniciar sesión', link:"/login", key: 'login'})
     }

@@ -1,4 +1,4 @@
-.moviesCard{
+.booksCard{
     list-style: none;
     text-align: center;
     padding: 10px;
@@ -6,7 +6,7 @@
 
 }
 
-.movieImage{
+.bookImage{
     background-color: azure;
     height: 18em;
 }

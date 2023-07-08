@@ -70,13 +70,29 @@ export const BookDetails = () => {
       </div>
       <div className="px-5 flex flex-col sm:flex-row md:justify-start sm:justify-center sm:items-center">
         <button className="h-10 px-5 m-2 font-bold text-white sm:text-sm transition-colors duration-150 bg-turquesa rounded-full focus:shadow-outline hover:bg-black flex items-center justify-center">
-          Pedir Libro
+          <Link to={`/book/${book.id}/borrow`}>
+            Pedir Libro
+          </Link>
         </button>
         <button className="h-10 md:px-5 sm:w-auto m-2 text-white sm:text-sm transition-colors duration-150 bg-blue rounded-lg focus:shadow-outline hover:bg-blue_black flex items-center justify-center">
-          <HiPencilAlt className="text-md" />
+          <Link to={`/book/${book.id}/edit`}>
+            <HiPencilAlt className="text-md" />
+          </Link>
         </button>
         <button className="h-10 md:px-5 sm:w-auto m-2 text-white sm:text-sm transition-colors duration-150 bg-red rounded-lg focus:shadow-outline hover:bg-red_black flex items-center justify-center">
-          <HiTrash className="text-md" />
+          <Link to={`/book/${book.id}/delete`}>
+            <HiTrash className="text-md" />
+          </Link>
+        </button>
+        <button className="h-10 px-5 m-2 font-bold text-white sm:text-sm transition-colors duration-150 bg-turquesa rounded-full focus:shadow-outline hover:bg-black flex items-center justify-center">
+          <Link to={`/book/${Math.max(1, book.id - 1)}`}>
+            Anterior
+          </Link>
+        </button>
+        <button className="h-10 px-5 m-2 font-bold text-white sm:text-sm transition-colors duration-150 bg-turquesa rounded-full focus:shadow-outline hover:bg-black flex items-center justify-center">
+          <Link to={`/book/${book.id + 1}`}>
+            Próximo
+          </Link>
         </button>
       </div>
     </div>

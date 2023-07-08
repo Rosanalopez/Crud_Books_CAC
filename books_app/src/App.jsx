@@ -1,16 +1,20 @@
 
 import { BookDetails } from "./pages/BookDetails";
 import { BooksMain } from "./pages/BooksMain";
+import { BorrowedBooks } from "./pages/BorrowedBooks";
+import BorrowBook from "./components/BorrowBook";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreateBook from "./components/CreateBook";
+import DeleteBook from "./components/DeleteBook";
 import EditBook from "./components/EditBook";
 import { LandingPage } from "./pages/LandingPage";
 import LoginForm from "./components/LoginForm";
 import LogoutForm from "./components/LogoutForm";
 import { Navbar } from "./components/Navbar"
-import { PrestamoLibro } from "./components/prestamoLibro";
 import ProtectedRoute from '../utils/protectedRoute';
+import ReturnBook from "./components/ReturnBook";
 import { SidebarAdmin } from "./pages/SidebarAdmin";
+import SignupForm from "./components/SignupForm";
 
 import './App.css'
 
@@ -23,6 +27,7 @@ function App() {
           <Route path="/" element={<LandingPage/>}/>
           <Route path="/login" element={<LoginForm/>}/>
           <Route path="/logout" element={<LogoutForm/>}/>
+          <Route path="/signup" element={<SignupForm/>}/> */
           <Route path="/admin" element={<SidebarAdmin/>}/> */
           
           <Route path="/book" element={
@@ -35,9 +40,14 @@ function App() {
               <BookDetails/>
             </ProtectedRoute>
           }/>
-          <Route path="/book/edit/:bookId" element={
+          <Route path="/book/:bookId/edit" element={
             <ProtectedRoute>
               <EditBook/>
+            </ProtectedRoute>
+          }/>
+          <Route path="/book/:bookId/delete" element={
+            <ProtectedRoute>
+              <DeleteBook/>
             </ProtectedRoute>
           }/> 
           <Route path="/book/create" element={
@@ -45,9 +55,19 @@ function App() {
               <CreateBook/>
             </ProtectedRoute>
           }/> 
-          <Route path="/book/prestamoLibro" element={
+          <Route path="/book/orders" element={
             <ProtectedRoute>
-              <PrestamoLibro/>
+              <BorrowedBooks/>
+            </ProtectedRoute>
+          }/>
+          <Route path="/book/orders/:bookId" element={
+            <ProtectedRoute>
+              <ReturnBook/>
+            </ProtectedRoute>
+          }/>
+          <Route path="/book/:bookId/borrow" element={
+            <ProtectedRoute>
+              <BorrowBook/>
             </ProtectedRoute>
           }/>
         </Routes>
